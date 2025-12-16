@@ -1,0 +1,283 @@
+/* === איפוס כללי === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background: var(--background);
+  color: var(--color);
+  font-family: "Heebo", sans-serif;
+  transition: background 0.6s ease, color 0.6s ease;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* === עמוד הרשמה – רקע מלא === */
+.registerPage {
+  min-height: 100vh; /* ✅ במקום height קבוע */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* ✅ סידור אנכי */
+  background: var(--background);
+  color: var(--color);
+  padding: 40px 20px;
+  transition: background 0.6s ease, color 0.6s ease;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* === לוגו === */
+.registerLogo {
+  width: 260px;
+  max-width: 90%;
+  filter: drop-shadow(0 0 15px var(--primary-color));
+  transition: transform 0.3s ease, filter 0.3s ease;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.registerLogo:hover {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 25px var(--primary-color));
+}
+
+/* === כרטיס זכוכית === */
+.registerCard {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  padding: 40px;
+  border-radius: 24px;
+  width: 400px;
+  max-width: 95%;
+  text-align: center;
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 0 25px var(--primary-color);
+  animation: fadeIn 0.8s ease;
+  position: relative;
+}
+
+/* === כותרות === */
+.registerCard h2 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.registerSubtitle {
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+  color: var(--color);
+  opacity: 0.8;
+  transition: color 0.4s ease;
+}
+
+/* === שדות טופס === */
+.inputGroup {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.inputGroup label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--color);
+  transition: color 0.4s ease;
+}
+
+.inputGroup input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--color);
+  font-size: 15px;
+  transition: background 0.3s, box-shadow 0.3s, color 0.3s;
+}
+
+.inputGroup input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.inputGroup input:focus {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 15px var(--primary-color);
+}
+
+/* === תיבת סימון === */
+.checkboxGroup {
+  text-align: right;
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: var(--color);
+  transition: color 0.3s ease;
+}
+
+.checkboxGroup a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.checkboxGroup a:hover {
+  text-decoration: underline;
+}
+
+/* === כפתור הרשמה === */
+.registerCard button {
+  width: 100%;
+  background: var(--primary-color);
+  border: none;
+  border-radius: 50px;
+  padding: 14px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+.registerCard button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, var(--primary-color), #1e90ff);
+  box-shadow: 0 0 25px var(--primary-color);
+}
+
+.registerCard button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* === הודעות הצלחה/שגיאה === */
+.registerMessage {
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  animation: fadeUp 0.4s ease;
+}
+
+.success {
+  background: rgba(0, 255, 120, 0.15);
+  color: #3aff93;
+}
+
+.error {
+  background: rgba(255, 80, 80, 0.15);
+  color: #ff5c5c;
+}
+
+/* === כיתוב תחתון === */
+.registerFooter {
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--color);
+}
+
+.registerFooter span {
+  color: var(--primary-color);
+  cursor: pointer;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.registerFooter span:hover {
+  color: #00f0ff;
+  text-shadow: 0 0 8px var(--primary-color);
+}
+
+/* === כפתורי ערכות נושא === */
+.theme-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 2rem;
+}
+
+.theme-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.theme-btn:hover {
+  transform: scale(1.2);
+}
+
+.theme-btn.active-theme {
+  border: 3px solid gold;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.8);
+  transform: scale(1.2);
+}
+
+/* === אנימציות === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === רספונסיביות === */
+@media (max-width: 700px) {
+  .registerPage {
+    padding: 20px 10px;
+  }
+
+  .registerCard {
+    width: 90%;
+    max-width: 380px;
+    padding: 25px;
+  }
+
+  .registerLogo {
+    width: 180px;
+  }
+
+  .registerCard h2 {
+    font-size: 1.5rem;
+  }
+
+  .registerSubtitle {
+    font-size: 0.9rem;
+  }
+
+  .registerCard button {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .registerFooter {
+    font-size: 13px;
+  }
+}

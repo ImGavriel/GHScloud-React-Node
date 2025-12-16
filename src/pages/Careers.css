@@ -1,0 +1,146 @@
+.careers-page {
+  position: relative;
+  min-height: 100vh;
+  font-family: "Heebo", sans-serif;
+  overflow-x: hidden;
+  color: var(--text-color);
+  direction: rtl;
+  text-align: right;
+  background: radial-gradient(circle at top, #07121c 0%, #041018 60%, #010a12 100%);
+}
+
+/* ☁️ רקע עננים */
+.cloud-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.45;
+  filter: blur(2px);
+}
+
+/* ✨ שכבת זכוכית */
+.careers-overlay {
+  position: relative;
+  z-index: 10;
+  padding: 120px 0;
+  background: linear-gradient(180deg, rgba(0, 15, 25, 0.85), rgba(0, 25, 40, 0.95));
+  backdrop-filter: blur(10px);
+}
+
+/* === תוכן ראשי === */
+.careers-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 25px;
+  text-align: center;
+}
+
+.careers-title {
+  font-size: 3rem;
+  color: var(--primary-color);
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  margin-bottom: 20px;
+}
+
+.careers-intro {
+  font-size: 1.2rem;
+  color: #bdefff;
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto 80px;
+  line-height: 1.9;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px 30px;
+  border-radius: 14px;
+  border-right: 4px solid var(--primary-color);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.08);
+  direction: rtl;
+}
+
+/* רשת תפקידים */
+.positions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 35px;
+}
+
+/* כרטיס תפקיד */
+.job-card {
+  background: rgba(0, 30, 45, 0.8);
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  border-radius: 20px;
+  padding: 30px;
+  transition: 0.3s ease;
+  text-align: right;
+  direction: rtl;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+}
+.job-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.35);
+  border-color: rgba(0, 255, 255, 0.35);
+}
+
+.job-header h2 {
+  color: var(--primary-color);
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+.job-desc {
+  color: #cdefff;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* דרישות */
+.job-details h3 {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+.job-reqs {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  color: #bdeaff;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* כפתור שליחת קורות חיים */
+.apply-btn {
+  background: linear-gradient(135deg, #00aaff, #00ffd5);
+  border: none;
+  color: #00131a;
+  font-weight: 600;
+  padding: 12px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+.apply-btn:hover {
+  transform: scale(1.06);
+  background: linear-gradient(135deg, #00ffd5, #00aaff);
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.4);
+}
+
+/* === רספונסיביות === */
+@media (max-width: 950px) {
+  .careers-title {
+    font-size: 2.2rem;
+  }
+  .careers-intro {
+    font-size: 1rem;
+  }
+  .job-card {
+    text-align: center;
+  }
+}

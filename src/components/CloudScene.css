@@ -1,0 +1,18 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: transparent !important; /* ❌ ביטול כל צבעי הרקע */
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+  z-index: 0; /* לשים מאחורי כל התוכן */
+  background: transparent;
+}

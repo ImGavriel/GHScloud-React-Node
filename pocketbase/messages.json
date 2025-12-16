@@ -1,0 +1,63 @@
+{
+  "name": "messages",
+  "type": "base",
+  "schema": [
+    {
+      "name": "name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "email",
+      "type": "email",
+      "required": true
+    },
+    {
+      "name": "phone",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "subject",
+      "type": "select",
+      "required": true,
+      "options": {
+        "maxSelect": 1,
+        "values": [
+          "support",
+          "sales",
+          "partnership",
+          "billing",
+          "career",
+          "other"
+        ]
+      }
+    },
+    {
+      "name": "message",
+      "type": "text",
+      "required": true,
+      "options": {
+        "maxSize": 5000
+      }
+    },
+    {
+      "name": "user",
+      "type": "relation",
+      "required": false,
+      "options": {
+        "collectionId": "users",
+        "cascadeDelete": false,
+        "minSelect": 0,
+        "maxSelect": 1
+      }
+    }
+  ],
+  "listRule": "true",
+  "viewRule": "true",
+  "createRule": "true",
+  "updateRule": "true",
+  "deleteRule": "true",
+  "indexes": [],
+  "options": {}
+}

@@ -1,0 +1,238 @@
+/* === מבנה כללי === */
+.navbar {
+  direction: rtl;
+  text-align: right;
+  width: 100%;
+  padding: 14px 50px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+
+  background: var(--navbar-bg, rgba(10, 20, 40, 0.55));
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  transition: background 0.4s ease, box-shadow 0.4s ease, color 0.3s ease;
+}
+
+.navbar:hover {
+  background: var(--navbar-hover-bg, rgba(10, 25, 45, 0.75));
+  box-shadow: 0 8px 35px var(--primary-shadow, rgba(0, 200, 255, 0.25));
+}
+
+/* === תוכן פנימי === */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1350px;
+  margin: 0 auto;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+
+/* === לוגו וטקסט === */
+.navbar-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  cursor: pointer;
+  user-select: none;
+}
+
+.navbar-title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  color: var(--text-color, #fff);
+  text-shadow: 0 0 12px var(--primary-glow, rgba(0, 255, 255, 0.5)),
+               0 0 22px rgba(160, 120, 255, 0.4);
+}
+
+.ghs {
+  background: linear-gradient(135deg, var(--primary-color, #00d5ff), var(--accent-color, #a18cd1));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.4),
+               0 0 35px rgba(161, 140, 209, 0.5);
+}
+
+.navbar-subtitle {
+  font-family: "Heebo", sans-serif;
+  font-size: 0.9rem;
+  color: var(--subtitle-color, #8deaff);
+  letter-spacing: 0.3px;
+  margin-top: 3px;
+  text-shadow: 0 0 8px rgba(183, 161, 255, 0.6),
+               0 0 15px rgba(120, 200, 255, 0.3);
+}
+
+/* === קישורים === */
+.navbar-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: nowrap;
+  direction: rtl;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--link-color, #e8faff);
+  font-size: 1rem;
+  position: relative;
+  transition: 0.3s ease;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.navbar-links li a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-color, #00e0ff), var(--accent-color, #a18cd1));
+  transition: width 0.3s ease;
+}
+
+.navbar-links li a:hover::after {
+  width: 100%;
+}
+
+.navbar-links li a:hover {
+  background: rgba(0, 255, 255, 0.08);
+  color: var(--primary-color, #00e6ff);
+  text-shadow: 0 0 12px rgba(0, 255, 255, 0.6),
+               0 0 25px rgba(161, 140, 209, 0.5);
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.25);
+}
+
+/* === Modal (חלון פרופיל) === */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 10, 20, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-card {
+  background: rgba(15, 25, 45, 0.95);
+  border-radius: 16px;
+  padding: 40px;
+  width: 90%;
+  max-width: 420px;
+  color: #eaf4ff;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.25);
+}
+
+.modal-card h2 {
+  color: #00ffff;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.modal-card p {
+  color: #b8e8ff;
+  margin-bottom: 25px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.close-modal-btn {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #00ffff, #00ffa0);
+  color: #00222a;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-modal-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+}
+
+/* === אנימציה כללית === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === רספונסיביות === */
+@media (max-width: 950px) {
+  .navbar {
+    padding: 12px 25px;
+  }
+
+  .navbar-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .navbar-logo {
+    align-items: center;
+    text-align: center;
+  }
+
+  .navbar-title {
+    font-size: 1.5rem;
+    justify-content: center;
+  }
+
+  .navbar-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .navbar-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .navbar-links li a {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .navbar-links {
+    gap: 14px;
+  }
+
+  .navbar-title {
+    font-size: 1.3rem;
+  }
+
+  .navbar-subtitle {
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,237 @@
+:root {
+  --primary-color: #00ffff;
+  --accent-color: #7b61ff;
+  --text-color: #eaf4ff;
+  --transition: all 0.3s ease;
+}
+
+/* === מבנה כללי === */
+.services-page {
+  position: relative;
+  min-height: 100vh;
+  font-family: "Heebo", sans-serif;
+  overflow-x: hidden;
+  background: radial-gradient(circle at top, #07121c 0%, #041018 60%, #010a12 100%);
+  color: var(--text-color);
+}
+
+/* ☁️ רקע עננים */
+.cloud-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+  filter: blur(2px);
+}
+
+/* ✨ שכבת הזכוכית */
+.services-overlay {
+  position: relative;
+  z-index: 5;
+  padding: 120px 0;
+  background: linear-gradient(180deg, rgba(5, 20, 35, 0.75), rgba(0, 25, 40, 0.95));
+  backdrop-filter: blur(10px);
+}
+
+/* מיכל ראשי */
+.services-container {
+  width: 90%;
+  max-width: 1150px;
+  margin: 0 auto;
+  text-align: center;
+  animation: fadeIn 1s ease-out;
+}
+
+/* כותרת */
+.services-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  text-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+  margin-bottom: 20px;
+}
+
+.highlight {
+  background: linear-gradient(135deg, #00bfff, #00ffff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* תיאור */
+.services-desc {
+  font-size: 1.2rem;
+  color: #b8e8ff;
+  max-width: 750px;
+  line-height: 1.9;
+  margin: 0 auto 60px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px 30px;
+  border-radius: 15px;
+  border-right: 4px solid var(--primary-color);
+  text-align: right;
+  direction: rtl;
+}
+
+/* רשימת כרטיסים */
+.packages-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 35px;
+}
+
+/* כרטיס חבילה */
+.package-card {
+  width: 320px;
+  background: linear-gradient(145deg, rgba(10, 30, 50, 0.95), rgba(5, 15, 25, 0.9));
+  border: 1px solid rgba(0, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 35px 25px;
+  text-align: right;
+  direction: rtl;
+  color: #e3f9ff;
+  position: relative;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+/* פופולרי */
+.popular-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: linear-gradient(135deg, #ffcc00, #ff8800);
+  color: #002;
+  font-weight: 700;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  box-shadow: 0 0 15px rgba(255, 180, 0, 0.6);
+}
+
+/* highlight */
+.highlight-card {
+  transform: scale(1.05);
+  border: 2px solid #00ffff;
+  box-shadow: 0 0 50px rgba(0, 255, 255, 0.4);
+}
+
+/* hover */
+.package-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 255, 255, 0.35);
+  box-shadow: 0 0 50px rgba(0, 255, 255, 0.3);
+}
+
+/* תוכן הכרטיס */
+.package-card h2 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+}
+
+.audience {
+  font-size: 1rem;
+  color: #a6eaff;
+  margin-bottom: 15px;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px;
+  color: #d8f8ff;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* מחיר */
+.price-tag {
+  font-size: 1.3rem;
+  color: #00ffff;
+  font-weight: 700;
+  margin: 15px 0;
+}
+
+/* תיאור קצר */
+.note {
+  font-size: 0.9rem;
+  color: #a3eaff;
+  opacity: 0.9;
+}
+
+/* כפתור בחירה */
+.choose-btn {
+  margin-top: 10px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #00e5ff, #00ffa0);
+  color: #001f28;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.choose-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+}
+
+/* כפתור חזרה */
+.back-home-btn {
+  margin-top: 90px;
+  padding: 16px 48px;
+  border-radius: 35px;
+  border: none;
+  background: linear-gradient(135deg, #00aaff, #00ffd0);
+  color: #00222a;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+}
+.back-home-btn:hover {
+  transform: scale(1.08);
+  background: linear-gradient(135deg, #00ffd0, #00aaff);
+  box-shadow: 0 0 50px rgba(0, 255, 255, 0.5);
+}
+/* חבילה פעילה */
+.active-card {
+  border: 2px solid #00ffff;
+  box-shadow: 0 0 45px rgba(0, 255, 255, 0.4);
+  transform: scale(1.04);
+  position: relative;
+}
+
+.current-plan {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(135deg, #00ffc6, #00e5ff);
+  color: #001e25;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}
+
+/* רספונסיביות */
+@media (max-width: 950px) {
+  .package-card {
+    width: 90%;
+    text-align: center;
+  }
+  .services-title {
+    font-size: 2.2rem;
+  }
+}

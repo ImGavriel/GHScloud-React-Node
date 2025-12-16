@@ -1,0 +1,82 @@
+{
+  "name": "users",
+  "type": "auth",
+  "schema": [
+    {
+      "name": "name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "phone",
+      "type": "text",
+      "required": false
+    },
+    {
+      "name": "vip",
+      "type": "bool",
+      "required": false
+    },
+    {
+      "name": "admin",
+      "type": "bool",
+      "required": false
+    },
+    {
+      "name": "owner",
+      "type": "bool",
+      "required": false
+    },
+    {
+      "name": "partner",
+      "type": "bool",
+      "required": false
+    },
+    {
+      "name": "betaTester",
+      "type": "bool",
+      "required": false
+    },
+    {
+      "name": "developer",
+      "type": "bool",
+      "required": false
+    },
+    {
+      "name": "supportAgent",
+      "type": "bool",
+      "required": false
+    },
+    {
+      "name": "verified",
+      "type": "bool",
+      "required": false
+    },
+    {
+      "name": "avatar",
+      "type": "file",
+      "required": false,
+      "options": {
+        "maxSelect": 1,
+        "maxSize": 5242880,
+        "mimeTypes": ["image/*"]
+      }
+    }
+  ],
+  "listRule": "true",
+  "viewRule": "true",
+  "createRule": "true",
+  "updateRule": "true",
+  "deleteRule": "true",
+  "authRule": "true",
+  "indexes": [],
+  "options": {
+    "allowEmailAuth": true,
+    "allowOAuth2Auth": true,
+    "allowUsernameAuth": false,
+    "requireEmail": true,
+    "requirePassword": true,
+    "minPasswordLength": 6,
+    "autoconfirm": true
+  }
+}

@@ -1,0 +1,239 @@
+.terms-page {
+  min-height: 100vh;
+  font-family: "Heebo", sans-serif;
+  color: var(--text-color, #e3f9ff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* ✅ במקום flex-start */
+  padding: 120px 20px;
+  text-align: right;
+  direction: rtl;
+  background: radial-gradient(circle at top, #07121c 0%, #041018 60%, #010a12 100%);
+  transition: background 0.6s ease, color 0.6s ease;
+  animation: fadeIn 0.8s ease;
+  overflow-x: hidden;
+}
+
+
+/* ☁️ רקע עננים */
+.cloud-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.25;
+  pointer-events: none;
+  filter: blur(2px);
+}
+
+/* 🔹 כרטיס התנאים */
+.terms-card {
+  position: relative;
+  z-index: 10;
+  width: 90%;
+  max-width: 850px;
+  padding: 50px 60px;
+  border-radius: 20px;
+  text-align: right;
+  direction: rtl;
+
+  background: linear-gradient(
+    145deg,
+    rgba(10, 30, 50, 0.96),
+    rgba(5, 15, 25, 0.94)
+  );
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.18);
+  backdrop-filter: blur(18px);
+  line-height: 1.8;
+  animation: slideUp 0.7s ease;
+}
+
+/* הילה עדינה */
+.terms-card::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: 0;
+  width: 100%;
+  height: 180%;
+  background: radial-gradient(
+    circle at top center,
+    rgba(0, 255, 255, 0.14),
+    transparent 75%
+  );
+  z-index: -1;
+}
+
+/* === כותרות ותוכן === */
+.terms-card h1 {
+  text-align: center;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  margin-bottom: 25px;
+  color: var(--primary-color, #00ffff);
+  text-shadow: 0 0 18px rgba(0, 255, 255, 0.4);
+}
+
+.terms-card .highlight {
+  color: #00ffff;
+  font-weight: 700;
+}
+
+.terms-card h2 {
+  margin-top: 25px;
+  font-size: 1.2rem;
+  color: #00dfff;
+}
+
+.terms-card p {
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #cbefff;
+}
+
+/* 🔙 כפתור חזרה (כפתור, לא a) */
+.back-register {
+  margin: 30px auto 0;
+  padding: 10px 26px;
+  border-radius: 24px;
+  border: none;
+  background: linear-gradient(135deg, #00bfff, #00ffd5);
+  color: #001822;
+  font-weight: 600;
+  font-size: 0.98rem;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.35);
+}
+
+.back-register:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.55);
+  color: #001822;
+}
+
+/* טקסט תחתון */
+.terms-footer {
+  text-align: center;
+  margin-top: 25px;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* 🎨 מקום לכפתורי ערכות נושא */
+.theme-btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+/* ✨ אנימציות */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 רספונסיביות */
+@media (max-width: 950px) {
+  .terms-page {
+    padding: 100px 15px 60px;
+  }
+
+  .terms-card {
+    padding: 35px 24px;
+    width: 96%;
+  }
+}
+
+@media (max-width: 600px) {
+  .terms-page {
+    padding: 90px 10px 40px;
+  }
+
+  .terms-card {
+    padding: 25px 18px;
+    width: 94%;
+  }
+
+  .terms-card h1 {
+    font-size: 1.5rem;
+  }
+
+  .terms-card h2 {
+    font-size: 1rem;
+  }
+
+  .terms-card p {
+    font-size: 0.9rem;
+  }
+}
+/* ✅ תיקון פס עליון שמעל הכרטיס */
+.terms-card::before {
+  content: "";
+  position: absolute;
+  top: 0; /* היה -40% → גרם לפס למעלה */
+  left: 0;
+  width: 100%;
+  height: 100%; /* היה 180% → גרם לשכבה עודפת */
+  background: radial-gradient(
+    circle at top center,
+    rgba(0, 255, 255, 0.08),
+    transparent 70%
+  );
+  z-index: -1;
+}
+
+/* ✅ יישור מושלם של כפתור החזרה */
+.back-register {
+  margin: 35px auto 0 auto; /* ממורכז תמיד */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 30px;
+  border-radius: 25px;
+  border: none;
+  background: linear-gradient(135deg, #00bfff, #00ffd5);
+  color: #001822;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.35);
+  transition: all 0.3s ease;
+}
+
+.back-register:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.55);
+}
+
+/* אופציונלי: יישור אנכי מושלם למרכז המסך */
+.terms-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* ✅ מרכז אנכית */
+  align-items: center;
+  padding: 120px 20px;
+}

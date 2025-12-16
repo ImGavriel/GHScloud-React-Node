@@ -1,0 +1,180 @@
+/* === בסיס כללי === */
+* {
+  box-sizing: border-box;
+}
+/* === בסיס כללי מתוקן - לא יהיו יותר שני פסי גלילה === */
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto; /* ✅ רק body גולל */
+}
+
+/* ✅ שורש האפליקציה לא מייצר גלילה משלו */
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: visible; /* ❗ ביטול ה־scroll הפנימי */
+}
+
+/* ✅ מיכל האפליקציה הראשי */
+.app-container {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: visible; /* ❗ גם כאן לא נגלול פעמיים */
+}
+
+/* === מרכז - לוגו + כפתור === */
+.center-button-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  text-align: center;
+  animation: fadeUp 1.5s ease-out forwards;
+  width: 100%;
+  padding: 0 15px; /* ✅ רווח בטלפונים קטנים */
+}
+
+/* === לוגו === */
+.logo-img {
+  width: clamp(180px, 45vw, 700px);
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 12px;
+  filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.4));
+  transition: transform 0.3s ease, filter 0.3s ease;
+  margin-bottom: 10px;
+  max-width: 100%;
+}
+
+.logo-img:hover {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 18px rgba(0, 255, 255, 0.7));
+}
+
+/* === כפתור מרכזי === */
+.center-button {
+  font-family: "Heebo", sans-serif;
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #00b7ff, #0072ff);
+  border: none;
+  border-radius: 40px;
+  padding: 16px 48px;
+  box-shadow: 0 0 25px rgba(0, 123, 255, 0.4);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  letter-spacing: 1px;
+}
+
+.center-button:hover {
+  transform: scale(1.08);
+  background: linear-gradient(135deg, #00e0ff, #0088ff);
+  box-shadow: 0 0 40px rgba(0, 200, 255, 0.6);
+}
+
+.center-button:active {
+  transform: scale(0.97);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+/* === אנימציה חלקה === */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -30%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -55%);
+  }
+}
+
+/* === רספונסיביות כוללת === */
+@media (max-width: 950px) {
+  .center-button-container {
+    transform: translate(-50%, -50%);
+    gap: 18px;
+  }
+
+  .center-button {
+    padding: 12px 36px;
+  }
+
+  .navbar {
+    padding: 10px 20px;
+    font-size: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer {
+    font-size: 14px;
+    padding: 15px 0;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .center-button-container {
+    top: 52%;
+    transform: translate(-50%, -52%);
+  }
+
+  .logo-img {
+    width: 70%;
+  }
+
+  .center-button {
+    padding: 10px 30px;
+    font-size: 17px;
+  }
+
+  .footer-text {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 400px) {
+  .center-button {
+    padding: 8px 26px;
+    font-size: 15px;
+  }
+
+  .logo-img {
+    width: 65%;
+  }
+
+  .footer {
+    font-size: 12px;
+  }
+}
+
+/* === נוחות מגע במובייל === */
+button,
+input {
+  font-size: 16px;
+  padding: 14px 16px;
+  border-radius: 10px;
+}
+
+/* === Navbar ו־Footer תמיד נראים === */
+.navbar,
+.footer {
+  position: relative;
+  z-index: 100;
+  text-align: center;
+  width: 100%;
+}

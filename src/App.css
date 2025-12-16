@@ -1,0 +1,227 @@
+/* ================================
+🎨 הגדרות משתנים גלובליים
+(מתעדכנים בזמן אמת ע"י useTheme)
+================================ */
+:root {
+  /* ערכים ברירת מחדל – אם המשתמש טרם הגדיר Theme */
+  --dynamic-background: rgba(216, 216, 216, 0.584);
+  --dynamic-text-color: #000000;
+  --dynamic-primary: #007bff;
+  --dynamic-primary-light: #33bbff;
+  --dynamic-primary-dark: #0044aa;
+  --dynamic-gradient: linear-gradient(135deg, #007bff, #0044aa);
+  --dynamic-shadow: rgba(0, 123, 255, 0.4);
+
+  /* משתנים קבועים שנעשה בהם שימוש באתר */
+  --background: var(--dynamic-background);
+  --text-color: var(--dynamic-text-color);
+  --primary-color: var(--dynamic-primary);
+  --primary-color-light: var(--dynamic-primary-light);
+  --primary-color-dark: var(--dynamic-primary-dark);
+  --button-gradient: var(--dynamic-gradient);
+  --shadow-color: var(--dynamic-shadow);
+}
+
+/* ✅ מעבר צבעים חלק בכל שינוי Theme */
+html,
+body,
+.app-container {
+  transition:
+    background 0.6s ease,
+    color 0.6s ease,
+    filter 0.6s ease,
+    box-shadow 0.6s ease;
+}
+
+/* ================================
+🌤️ מבנה ראשי
+================================ */
+.app-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--background);
+  color: var(--text-color);
+  font-family: "Heebo", sans-serif;
+}
+
+/* ☁️ רקע עננים */
+.cloud-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ================================
+🎯 מרכז – לוגו + כפתורים
+================================ */
+.center-button-container {
+  position: absolute;
+  top: 45vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3vh;
+  text-align: center;
+  width: 100%;
+  padding: 0 20px;
+  animation: fadeUp 1.5s ease-out forwards;
+}
+
+/* 🔷 לוגו */
+.logo-img {
+  width: clamp(160px, 35vw, 650px);
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.4));
+  transition: transform 0.3s ease, filter 0.3s ease;
+  margin-bottom: 2vh;
+}
+.logo-img:hover {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 18px var(--primary-color));
+}
+
+/* 🔘 כפתור מרכזי */
+.center-button {
+  font-family: "Heebo", sans-serif;
+  font-size: clamp(16px, 1.6vw, 22px);
+  font-weight: 600;
+  color: white;
+  background: var(--button-gradient);
+  border: none;
+  border-radius: 50px;
+  padding: clamp(12px, 1.5vw, 18px) clamp(30px, 4vw, 60px);
+  box-shadow: 0 0 25px var(--shadow-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  margin-top: 2vh;
+}
+.center-button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, var(--primary-color-light), var(--primary-color));
+  box-shadow: 0 0 40px var(--shadow-color);
+}
+.center-button:active {
+  transform: scale(0.97);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+/* קבוצת כפתורים */
+.button-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ================================
+📦 אזור החבילות
+================================ */
+.packages-section {
+  position: relative;
+  z-index: 20;
+  margin-top: 100vh;
+  padding: 120px 20px 160px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-top: 2px solid var(--primary-color-light);
+  box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeIn 1.2s ease-in;
+  max-width: 1400px;
+  margin-inline: auto;
+}
+.packages-section h2 {
+  color: var(--primary-color);
+}
+
+/* כפתור נוסף */
+.info-btn {
+  background: var(--button-gradient);
+  color: white;
+}
+.info-btn:hover {
+  background: linear-gradient(135deg, var(--primary-color-light), var(--primary-color));
+}
+
+/* ================================
+✨ אנימציות
+================================ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================================
+📱 רספונסיביות
+================================ */
+@media (max-width: 950px) {
+  .center-button-container {
+    top: 48vh;
+    transform: translate(-50%, -50%);
+    gap: 20px;
+    padding: 0 15px;
+  }
+
+  .logo-img {
+    width: 65%;
+    max-width: 280px;
+  }
+
+  .center-button {
+    font-size: 18px;
+    padding: 12px 32px;
+  }
+}
+
+@media (max-width: 450px) {
+  .center-button-container {
+    top: 47vh;
+  }
+
+  .center-button {
+    padding: 10px 28px;
+    font-size: 16px;
+  }
+
+  .logo-img {
+    width: 70%;
+  }
+}
+
+/* ================================
+🧭 Navbar ו־Footer
+================================ */
+.navbar,
+.footer {
+  position: relative;
+  z-index: 100;
+}
