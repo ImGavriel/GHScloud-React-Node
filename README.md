@@ -1,16 +1,104 @@
-# React + Vite
+# GHSCloud
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 **GHSCloud** is a cloud‑oriented full‑stack project designed as a foundation for hosting, user management, and scalable web services.
 
-Currently, two official plugins are available:
+The project was built as part of hands‑on learning and experimentation with modern web technologies, backend services, and cloud‑ready architecture.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Full‑stack architecture (Frontend + Backend)
+- User authentication and protected routes
+- Modular and scalable project structure
+- PocketBase integration for data handling
+- Ready for cloud deployment and future expansion
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Technologies Used
+
+- **Frontend:** React + Vite
+- **Backend:** Node.js
+- **Database / Backend Service:** PocketBase
+- **Styling:** CSS Modules & standard CSS
+- **Tooling:** ESLint, npm
+
+---
+
+## 📦 Project Structure
+
+```
+GHSCloud/
+├─ public/
+├─ server/
+├─ src/
+│  ├─ components/
+│  ├─ pages/
+│  ├─ layouts/
+│  ├─ hooks/
+│  └─ main.jsx
+├─ pocketbase/
+├─ package.json
+├─ vite.config.js
+└─ README.md
+```
+
+---
+
+## ▶️ Getting Started
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/ImGavriel/GHSCLOUD.git
+cd GHSCLOUD
+```
+
+### 2️⃣ Install dependencies
+
+```bash
+npm install
+```
+
+### 3️⃣ Run the project
+
+```bash
+npm run dev
+```
+
+The application will be available at:
+
+```
+http://localhost:5173
+```
+
+---
+
+## 🔐 Security Notes
+
+- Sensitive runtime data (databases, backups, binaries) is **not included** in the repository.
+- Credentials, tokens, and environment‑specific values should be managed using **environment variables**.
+- This follows industry best practices for secure and open‑source development.
+
+---
+
+## 📈 Future Plans
+
+- Cloud deployment (VPS / Docker)
+- Role‑based access control
+- Improved authentication flows
+- Monitoring and logging
+
+---
+
+## 👤 Author
+
+**Gavriel Beniaguev**
+Software Engineering Student | Full‑Stack Developer
+
+GitHub: [https://github.com/ImGavriel](https://github.com/ImGavriel)
+
+---
+
+⭐ If you find this project interesting, feel free to star the repository and share feedback!
